@@ -3,8 +3,11 @@
 # stencil-automated-stories using
 
 git clone https://github.com/pavel-kru/stencil-and-automated-storybook.git
+
 npm i
+
 npm run build
+
 npm run storybook.run
 
 # Stencil Component Starter
