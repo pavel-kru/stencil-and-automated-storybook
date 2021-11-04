@@ -3,7 +3,8 @@
 }
 
 .MyButton {
-  width: 100%;
+  font-size: 1.2rem;
+  width: max-content;
   font-weight: 600;
   cursor: pointer;
   outline: none;
@@ -72,13 +73,13 @@
 
   /** Size **/
   &.large {
-    padding: 12px;
+    padding: 15px 25px;
   }
   &.medium {
-    padding: 8px;
+    padding: 10px 20px;
   }
   &.small {
-    padding: 4px;
+    padding: 8px 15px;
   }
 
   /** Elevation **/

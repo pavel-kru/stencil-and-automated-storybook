@@ -29,14 +29,9 @@ function getControlForProp(prop, controlOptions) {
   } else if (/^(?:string)$/i.test(prop.type)) {
     if (!/^(?:string|number|boolean|object)$/i.test(prop.complexType.original)) {
       const arrOptions = prop.complexType.resolved.split(' | ');
-      const selectOptions = arrOptions.map(o => (
-        o.match(/("(\w|-)+")|('(\w|-)+')/g) ? o
-          .replace(/'|\|/gi, '')
-          .replace(/"|\|/gi, '')
-          .replace(/'/gi, '')
-          .replace(/`/gi, '')
-          .trim() : o
-      ));
+      const selectOptions = arrOptions.map(o =>
+        o.match(/("(\w|-)+")|('(\w|-)+')/g) ? o.replace(/'|\|/gi, '').replace(/"|\|/gi, '').replace(/'/gi, '').replace(/`/gi, '').trim() : o,
+      );
 
       control = {
         control: {
@@ -121,9 +116,10 @@ function getPropsWithControlValues(Component, controlOptions) {
 function getStencilTemplate({ title, description }) {
   let template = `
           <div class="component-area">
-              <h2>${title}</h2>
+              <h1 style="display: block; text-align: center">${title}<br>Play with controls to discover it.</h1>
+              
               ${description ? '<p>' + description + '</p>' : ''}
-              <div class="placeholder">
+              <div class="placeholder" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%)">
                 <!-- the component will be inserted here -->
               </div>
           </div>
@@ -200,10 +196,10 @@ function createStencilStory({ Component, notes, states, args = {}, argTypes = {}
   // Clone the "states" array and add the default state first
   states = states && states.length ? states.slice(0) : [];
   states.unshift({
-    title: 'Default state (use Controls below to edit props):',
+    title: `This is <strong style="font-size: 2rem; color: #808B96">${Case.kebab(Component.name)}</strong> web-component.`,
     tag: Component.is,
     props: {},
-    children: [{ tag: 'span', innerText: 'Default' }],
+    children: [{ tag: 'span', innerText: Case.kebab(Component.name) }],
   });
 
   // Create the story with all of the states
