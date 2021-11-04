@@ -1,3 +1,5 @@
+@import "../../utils/variables";
+
 :host {
   display: block;
 }
@@ -11,50 +13,50 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &:disabled {
+    background-color: $light-grey;
+    color: $grey;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
 
   /** Colors **/
   &.primary {
-    background: #1b8df2 0% 0% no-repeat padding-box;
+    background: linear-gradient(to right bottom, $blue, rgba($blue, 0.7));
     border: none;
-    color: white;
+    color: $white;
     transition: 0.3s;
     &:hover,
     &:focus {
-      background-color: #45a3f5;
-      box-shadow: 3px 4px 6px #a3a3a3;
+      box-shadow: 3px 4px 6px $grey;
     }
     &:active {
-      background-color: #0b7de0;
-      box-shadow: 3px 4px 6px #a3a3a3;
-    }
-    &:disabled {
-      background-color: #d6d6d6;
-      color: #a3a3a3;
-      cursor: not-allowed;
-      box-shadow: none;
+      box-shadow: 3px 4px 6px $grey;
     }
   }
   &.secondary {
+    background: linear-gradient(to right bottom, $green, $light-green);
+    color: $white;
+    &:hover,
+    &:focus {
+      box-shadow: 3px 4px 6px $grey;
+    }
+  }
+  &.outlined {
     background: transparent;
-    border: 1px solid #1b8df2;
+    border: 1px solid $blue;
     border-radius: 4px;
-    color: #1b8df2;
+    color: $blue;
     transition: 0.3s;
     &:hover,
     &:focus {
-      background-color: #7fbef5;
-      color: #45a3f5;
+      color: $white;
+      background: linear-gradient(to right bottom, $light-blue, $blue);
     }
 
     &:active {
-      background-color: #45a3f5;
-      color: #45a3f5;
-    }
-    &:disabled {
-      border-color: #d6d6d6;
-      color: #a3a3a3;
-      background-color: #f7f7f7;
-      cursor: not-allowed;
+      background-color: $light-blue;
+      color: $white;
     }
   }
 
