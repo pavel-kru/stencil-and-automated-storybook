@@ -13,12 +13,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  &:disabled {
-    background-color: $light-grey;
-    color: $grey;
-    cursor: not-allowed;
-    box-shadow: none;
-  }
 
   /** Colors **/
   &.primary {
@@ -58,6 +52,13 @@
       background-color: $light-blue;
       color: $white;
     }
+  }
+
+  &:disabled {
+    background: $light-grey;
+    color: $grey;
+    cursor: not-allowed;
+    box-shadow: none !important;
   }
 
   /** Shape **/
